@@ -1,0 +1,4 @@
+socalloc
+========
+
+Society fund allocator
