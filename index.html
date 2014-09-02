@@ -8,19 +8,25 @@
     <script src="index.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    
+
   </head>
   <body>
     <div ng-controller="AllocController">
       <ul>
         <li ng-repeat="soc in socs">
           <input type="text" ng-model="soc.name" />
-          <input type="text" ng-model="soc.requestedFunding" />
+          <input type="number" ng-model="soc.requestedFunding" min="0" />
+          <span>{{soc.allocatedFunding}}</span>
         </li>
       </ul>
       <form ng-submit="addSoc()">
         <input class="btn-primary" type="submit" value="Add row">
       </form>
+      <form ng-submit="rmSoc()">
+        <input class="btn-primary" type="submit" value="Remove row">
+      </form>
+      <span>
+      <span>{{totalRequested()}} requested</span>
     </div>
   </body>
 </html>
