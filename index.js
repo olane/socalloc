@@ -109,4 +109,46 @@ angular.module('socAlloc', [])
       return unused > 0 ? unused : 0;
     }
 
+    $scope.importPastedData = function() {
+
+      var data = $scope.pasteData;
+
+      var rows = data.split("\n");
+
+      $scope.socs = [];
+
+      for(var y in rows) {
+        var cells = rows[y].split("\t");
+
+        if(cells[1] == null){
+          cells[1] = 0
+        }
+
+        if(cells[2] == null){
+          cells[2] = 0
+        }
+
+        $scope.socs.push(
+          {
+            name: cells[0],
+            memberCount: $scope.tryParseInt(cells[1]),
+            requestedFunding: $scope.tryParseFloat(cells[2])
+          });
+      }
+    };
+
+    $scope.tryParseInt = function(str){
+      var result = parseInt(str.replace(/[^0-9\.]+/g,""));
+      return isNaN(result) ? 0 : result;
+    };
+
+    $scope.tryParseFloat = function(str){
+      var result = parseFloat(str.replace(/[^0-9\.]+/g,""));
+      return isNaN(result) ? 0 : result;
+    };
   }]);
+
+
+(function(){
+
+})();
