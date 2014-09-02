@@ -18,8 +18,14 @@ angular.module('socAlloc', [])
     };
 
 
-    $scope.rmSoc = function() {
-      $scope.socs.pop();
+    $scope.removeRow = function(soc) {
+      
+      var index = $scope.socs.indexOf(soc);
+
+      if (index > -1) {
+        $scope.socs.splice(index, 1);
+      }
+
     };
 
     $scope.totalRequested = function(){
