@@ -147,8 +147,3 @@ angular.module('socAlloc', [])
       return isNaN(result) ? 0 : result;
     };
   }]);
-
-
-(function(){
-
-})();
