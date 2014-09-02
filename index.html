@@ -12,20 +12,35 @@
   </head>
   <body>
     <div ng-controller="AllocController">
-      <ul>
-        <li ng-repeat="soc in socs">
-          <button ng-click="removeRow(soc)">Remove row</button>
-          <input type="text" ng-model="soc.name" />
-          <input type="number" ng-model="soc.memberCount" min="0" />
-          <input type="number" ng-model="soc.requestedFunding" min="0" />
-          <span>{{socAllocation(soc)}}</span>
-        </li>
-      </ul>
+
+      <table>
+        <tr>
+          <th>Society name</th>
+          <th>Member count</th>
+          <th>Requested funding</th>
+          <th>Allocated funding</th>
+        </tr>
+
+        <tr ng-repeat="soc in socs">
+          <td><input type="text" ng-model="soc.name" /></td>
+          <td><input type="number" ng-model="soc.memberCount" min="0" /></td>
+          <td><input type="number" ng-model="soc.requestedFunding" min="0" /></td>
+          <td><span>{{socAllocation(soc)}}</span></td>
+          <td><button ng-click="removeRow(soc)">Remove row</button></td>
+        </tr>
+      </table>
+
       <form ng-submit="addSoc()">
         <input class="btn-primary" type="submit" value="Add row">
       </form>
+
       Budget:<input type="number" ng-model="budget" />
-      <span>
+
+      <div id="stats">
+        <span>Total allocated: {{totalAllocatedFunding()}}</span>
+        <span>Unused: {{unusedBudget()}}</span>
+      </div>
+
     </div>
   </body>
 </html>

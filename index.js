@@ -19,7 +19,7 @@ angular.module('socAlloc', [])
 
 
     $scope.removeRow = function(soc) {
-      
+
       var index = $scope.socs.indexOf(soc);
 
       if (index > -1) {
@@ -95,5 +95,18 @@ angular.module('socAlloc', [])
       });
       return count;
     };
+
+    $scope.totalAllocatedFunding = function() {
+      var count = 0;
+      angular.forEach($scope.socs, function(soc) {
+        count += soc.allocatedFunding;
+      });
+      return count;
+    }
+
+    $scope.unusedBudget = function() {
+      var unused = $scope.budget - $scope.totalAllocatedFunding();
+      return unused > 0 ? unused : 0;
+    }
 
   }]);
