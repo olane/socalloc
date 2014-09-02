@@ -35,10 +35,27 @@ table {
 }
 
 .importer {
-  width: 600px;
+  padding-top: 20px;
+  clear: both;
 }
 
 .importer textarea{
-  width:600px;
-  height:200px;
+  width: 600px;
+  margin-right: 200px;
+  height: 200px;
+}
+
+.exporter {
+  padding-top: 20px;
+  clear: both;
+}
+
+.exporter textarea{
+  width: 600px;
+  margin-right: 200px;
+  height: 200px;
+}
+
+.glyphicon {
+  margin-right: 4px;
 }

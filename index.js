@@ -155,4 +155,17 @@ angular.module('socAlloc', [])
       var result = parseFloat(str.replace(/[^0-9\.]+/g,""));
       return isNaN(result) ? 0 : result;
     };
+
+
+    $scope.getExportData = function() {
+      var str = "";
+      angular.forEach($scope.socs, function(soc) {
+        str += soc.name + "\t";
+        str += soc.memberCount + "\t";
+        str += soc.requestedFunding.toFixed(2) + "\t";
+        str += soc.allocatedFunding.toFixed(2) + "\n";
+      });
+      return str;
+    }
+
   }]);

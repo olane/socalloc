@@ -64,8 +64,18 @@
       </ul>
 
       <div class="importer">
-        <textarea ng-model="pasteData" placeholder="Paste data from a spreadsheet here to import it."></textarea>
-        <button ng-click="importPastedData()" class="btn btn-sm btn-default">Import</button>
+        <h3>Import</h3>
+        <p>Paste data from a spreadsheet into the box below to import it. It must have 3 columns of data, in the same order as in the table above. Currency formatted values are allowed for 'Requested Funding' column.</p>
+        <textarea ng-model="pasteData" placeholder="Paste here :)"></textarea>
+        <button ng-click="importPastedData()" class="btn btn-sm btn-default">
+          <span class="glyphicon glyphicon-import"></span>Import
+        </button>
+      </div>
+
+      <div class="exporter">
+        <h3>Export</h3>
+        <p>The calculated data is repeated here so that it can be copied back into a spreadsheet.</p>
+        <textarea>{{getExportData()}}</textarea>
       </div>
 
     </div>
