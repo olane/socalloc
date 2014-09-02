@@ -18,14 +18,14 @@
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
 
   </head>
   <body>
-    <div ng-controller="AllocController">
+    <div ng-controller="AllocController" class="container">
 
-      <table>
+      <table class="table-striped">
         <tr>
           <th>Society name</th>
           <th>Member count</th>
@@ -42,19 +42,25 @@
         </tr>
       </table>
 
-      <form ng-submit="addSoc()">
+      <form class="add-row" ng-submit="addSoc()">
         <button type="submit" class="btn btn-sm btn-primary">Add row</button>
       </form>
 
-      Budget:<input type="number" ng-model="budget" />
+      <ul class="stats list-group col-md-5">
+        <li class="list-group-item">
+          <label class="budget">
+            Budget:<input type="number" ng-model="budget" />
+          </label>
+        </li>
+        <li class="list-group-item">Total allocated to societies: {{totalAllocatedFunding()}}</li>
+        <li class="list-group-item">Budgeted but not used: {{unusedBudget()}}</li>
+        <li class="list-group-item">Requested but not granted: {{notGrantedTotal()}}</li>
+      </ul>
 
-      <div id="stats">
-        <span>Total allocated: {{totalAllocatedFunding()}}</span>
-        <span>Unused: {{unusedBudget()}}</span>
+      <div class="importer">
+        <textarea ng-model="pasteData"></textarea>
+        <button ng-click="importPastedData()" class="btn btn-sm btn-default">Import</button>
       </div>
-
-      <textarea ng-model="pasteData"></textarea>
-      <button ng-click="importPastedData()" class="btn btn-sm btn-default">Import</button>
 
     </div>
 

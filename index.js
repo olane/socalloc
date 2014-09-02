@@ -109,6 +109,12 @@ angular.module('socAlloc', [])
       return unused > 0 ? unused : 0;
     }
 
+
+    $scope.notGrantedTotal = function() {
+      var total = $scope.totalRequested() - $scope.budget;
+      return total > 0 ? total : 0;
+    }
+
     $scope.importPastedData = function() {
 
       var data = $scope.pasteData;

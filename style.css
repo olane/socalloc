@@ -6,3 +6,38 @@
 th, td {
   padding: 5px 10px;
 }
+
+.container {
+  width: 800px !important;
+}
+
+table {
+  margin: 20px 0 10px;
+}
+
+.add-row {
+  float: right;
+  margin: 5px 10px;
+}
+
+.budget {
+  margin: 0;
+}
+
+.budget input {
+  margin-left: 5px;
+}
+
+.stats {
+  margin-top: 50px;
+}
+
+.importer {
+  width: 400px;
+  margin: 20px 0;
+}
+
+.importer textarea{
+  width:400px;
+  height:200px;
+}
