@@ -24,7 +24,13 @@
   </head>
   <body>
     <div ng-controller="AllocController" class="container">
-
+      <h1>Society funds allocator</h1>
+      <p>
+        This is a fund allocator, intended to fairly distribute a pot of funds around a set of societies that request a certain amount.
+      </p>
+      <p>
+        It works by allocating an amount proportional to a society's member count to each society, up to their requested level. If money remains in the pot, the process is repeated until all societies are given their requested amount or the money runs out.
+      </p>
       <table class="table-striped">
         <tr>
           <th>Society name</th>
@@ -37,7 +43,7 @@
           <td><input type="text" ng-model="soc.name" /></td>
           <td><input type="number" ng-model="soc.memberCount" min="0" /></td>
           <td><input type="number" ng-model="soc.requestedFunding" min="0" /></td>
-          <td><span class="allocated-funding-cell">{{socAllocation(soc)}}</span></td>
+          <td><span class="allocated-funding-cell">{{socAllocation(soc) | number:2}}</span></td>
           <td><button ng-click="removeRow(soc)" class="btn btn-xs btn-danger">Remove row</button></td>
         </tr>
       </table>
@@ -46,19 +52,19 @@
         <button type="submit" class="btn btn-sm btn-primary">Add row</button>
       </form>
 
-      <ul class="stats list-group col-md-5">
+      <ul class="stats list-group col-md-6">
         <li class="list-group-item">
           <label class="budget">
             Budget:<input type="number" ng-model="budget" />
           </label>
         </li>
-        <li class="list-group-item">Total allocated to societies: {{totalAllocatedFunding()}}</li>
-        <li class="list-group-item">Budgeted but not used: {{unusedBudget()}}</li>
-        <li class="list-group-item">Requested but not granted: {{notGrantedTotal()}}</li>
+        <li class="list-group-item">Total allocated to societies: {{totalAllocatedFunding() | number:2}}</li>
+        <li class="list-group-item">Budgeted but not used: {{unusedBudget() | number:2}}</li>
+        <li class="list-group-item">Requested but not granted: {{notGrantedTotal() | number:2}}</li>
       </ul>
 
       <div class="importer">
-        <textarea ng-model="pasteData"></textarea>
+        <textarea ng-model="pasteData" placeholder="Paste data from a spreadsheet here to import it."></textarea>
         <button ng-click="importPastedData()" class="btn btn-sm btn-default">Import</button>
       </div>
 

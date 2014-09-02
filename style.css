@@ -9,6 +9,7 @@ th, td {
 
 .container {
   width: 800px !important;
+  margin-bottom: 30px;
 }
 
 table {
@@ -30,14 +31,14 @@ table {
 
 .stats {
   margin-top: 50px;
+  box-shadow: none !important;
 }
 
 .importer {
-  width: 400px;
-  margin: 20px 0;
+  width: 600px;
 }
 
 .importer textarea{
-  width:400px;
+  width:600px;
   height:200px;
 }

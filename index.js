@@ -3,12 +3,15 @@ angular.module('socAlloc', [])
     $scope.socs = [
       {name:'Football',
        requestedFunding:500,
-       memberCount:23,
-       allocatedFunding:20},
+       memberCount:23},
       {name:'Rowing',
        requestedFunding:400,
-       memberCount:13,
-       allocatedFunding:50}];
+       memberCount:13},
+      {name:'Knitting',
+       requestedFunding:1000,
+       memberCount:3}];
+
+    $scope.budget = 801;
 
     $scope.addSoc = function() {
       $scope.socs.push({name:"",
