@@ -57,7 +57,7 @@
       <ul class="stats list-group col-md-6">
         <li class="list-group-item">
           <label class="budget">
-            Budget:<input type="number" ng-model="budget" />
+            Budget:<input type="number" ng-model="budget" min="0"/>
           </label>
         </li>
         <li class="list-group-item">Total allocated to societies: {{totalAllocatedFunding() | number:2}}</li>
