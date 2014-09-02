@@ -65,7 +65,12 @@
 
       <div class="importer">
         <h3>Import</h3>
-        <p>Paste data from a spreadsheet into the box below to import it. It must have 3 columns of data, in the same order as in the table above. Currency formatted values are allowed for 'Requested Funding' column.</p>
+        <p>
+          Paste data from a spreadsheet into the box below to import it. It must have 3 columns of data, in the same order as in the table above. Currency formatted values are allowed for 'Requested Funding' column.
+        </p>
+        <p>
+          <strong>Warning: current data will be overwritten.</strong>
+        </p>
         <textarea ng-model="pasteData" placeholder="Paste here :)"></textarea>
         <button ng-click="importPastedData()" class="btn btn-sm btn-default">
           <span class="glyphicon glyphicon-import"></span>Import
